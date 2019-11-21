@@ -1,11 +1,12 @@
 package org.codingdojo.kata;
 
 
+import org.codingdojo.kata.ruler.Length;
 import org.codingdojo.kata.ruler.utils.Utils;
 
 import java.util.Scanner;
 
-public class Ruler {
+public class RulerMain {
 
     public static void main(String[] args) {
         System.out.println("请输入物品1长度(eg: 12 m, 2 dm, 99 cm, 0.1 mm):");

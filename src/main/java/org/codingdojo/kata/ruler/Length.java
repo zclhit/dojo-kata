@@ -1,4 +1,4 @@
-package org.codingdojo.kata;
+package org.codingdojo.kata.ruler;
 
 import org.codingdojo.kata.ruler.enu.LengthUnit;
 import org.codingdojo.kata.ruler.exception.TooLongException;
