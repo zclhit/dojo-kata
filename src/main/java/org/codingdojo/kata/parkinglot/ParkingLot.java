@@ -6,16 +6,14 @@ import java.util.UUID;
 
 public class ParkingLot {
     private final int cap;
-    private int currentCap;
     private Map<String, Car> map = new HashMap<>();
 
     public ParkingLot(int cap) {
         this.cap = cap;
-        this.currentCap = cap;
     }
 
     public String park(org.codingdojo.kata.parkinglot.Car car) {
-        if (currentCap == 0) {
+        if (!hasFreePosition()) {
             return null;
         }
 
@@ -25,7 +23,6 @@ public class ParkingLot {
 
         String cardNumber = UUID.randomUUID().toString();
         map.put(cardNumber, car);
-        currentCap--;
         return cardNumber;
     }
 
@@ -35,7 +32,7 @@ public class ParkingLot {
         return car;
     }
 
-    public int getCurrentCap() {
-        return currentCap;
+    public boolean hasFreePosition() {
+        return map.keySet().size() < cap;
     }
 }

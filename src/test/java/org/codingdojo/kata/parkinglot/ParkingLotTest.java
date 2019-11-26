@@ -1,16 +1,15 @@
 package org.codingdojo.kata.parkinglot;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.UUID;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 public class ParkingLotTest {
-    //TODO: remove this test
-    @Test
-    public void should_build_Parking_lot_success() {
-        ParkingLot lot = new ParkingLot(12);
-    }
 
     @Test
     public void should_parked_car_and_return_card_when_customer_come_to_park_when_lot_has_free_position() {
@@ -18,7 +17,7 @@ public class ParkingLotTest {
         Car car = new Car("京A 12345");
         String cardNumber = lot.park(car);
 
-        Assert.assertNotNull(cardNumber);
+        assertNotNull(cardNumber);
     }
 
     @Test
@@ -27,7 +26,7 @@ public class ParkingLotTest {
         Car car = new Car("京A 12345");
         String cardNumber = lot.park(car);
 
-        Assert.assertEquals("京A 12345", lot.retrieve(cardNumber).getPlateNumber());
+        assertEquals("京A 12345", lot.retrieve(cardNumber).getPlateNumber());
     }
 
     @Test
@@ -37,16 +36,18 @@ public class ParkingLotTest {
 
         String cardNumber = lot.park(car);
 
-        Assert.assertNull(cardNumber);
+        assertNull(cardNumber);
     }
 
     @Test
     public void should_reduce_park_current_cap_by_1_when_parked_a_car_in() {
         ParkingLot lot = new ParkingLot(2);
-        Car car = new Car("BA 12334");
-        String cardNumber = lot.park(car);
+        Car car1 = new Car("BA 12334");
+        String cardNumber1 = lot.park(car1);
+        Car car2 = new Car("BA 12335");
+        String cardNumber2 = lot.park(car2);
 
-        Assert.assertEquals(1, lot.getCurrentCap());
+        assertFalse(lot.hasFreePosition());
     }
 
     @Test
@@ -55,7 +56,7 @@ public class ParkingLotTest {
         Car car = new Car("京A 12345");
         String cardNumber = UUID.randomUUID().toString();
 
-        Assert.assertNull(lot.retrieve(cardNumber));
+        assertNull(lot.retrieve(cardNumber));
     }
 
     @Test
@@ -63,7 +64,7 @@ public class ParkingLotTest {
         ParkingLot lot = new ParkingLot(2);
         Car car = new Car("京A 12345");
 
-        Assert.assertNull(lot.retrieve(null));
+        assertNull(lot.retrieve(null));
     }
 
     @Test
@@ -72,7 +73,7 @@ public class ParkingLotTest {
         Car car = new Car(null);
         String cardNumber = lot.park(car);
 
-        Assert.assertNull(cardNumber);
+        assertNull(cardNumber);
     }
 
     @Test
@@ -81,8 +82,8 @@ public class ParkingLotTest {
         Car car = new Car("京A 12345");
         String cardNumber = lot.park(car);
 
-        Assert.assertEquals("京A 12345", lot.retrieve(cardNumber).getPlateNumber());
-        Assert.assertNull(lot.retrieve(cardNumber));
+        assertEquals("京A 12345", lot.retrieve(cardNumber).getPlateNumber());
+        assertNull(lot.retrieve(cardNumber));
     }
 
 }
