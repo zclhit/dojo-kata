@@ -17,10 +17,6 @@ public class ParkingLot {
             return null;
         }
 
-        if (null == car.getPlateNumber()) {
-            return null;
-        }
-
         String cardNumber = UUID.randomUUID().toString();
         map.put(cardNumber, car);
         return cardNumber;
