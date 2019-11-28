@@ -20,4 +20,12 @@ public class ParkingBoy {
         }
         return null;
     }
+
+    public Car retrieveCar(Credit credit) {
+        int parkingLotNumber = credit.getParkingLotNumber();
+        if (parkingLotNumber > myParkingLots.size()) {
+            return null;
+        }
+        return myParkingLots.get(parkingLotNumber - 1).retrieve(credit.getParkingToken());
+    }
 }

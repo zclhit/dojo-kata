@@ -48,11 +48,17 @@ public class ParkingBoyTest {
         assertNull(credit);
     }
 
-//    @Test
-//    public void should_get_car_when_with_right_credit() {
-//        Car car = new Car("陕A 12345");
-//        Credit credit = boy.park(car);
-//        assertEquals(1, credit.getParkingLotNumber());
-//    }
+    @Test
+    public void should_get_car_when_with_right_credit() {
+        Car car = new Car("陕A 12345");
+        Credit credit = boy.park(car);
+        assertEquals(car, boy.retrieveCar(credit));
+    }
+
+    @Test
+    public void should_return_null_given_invalid_credit_when_retrieve_car() {
+        Credit credit = new Credit(1, "dummy token");
+        assertNull(boy.retrieveCar(credit));
+    }
 }
 
