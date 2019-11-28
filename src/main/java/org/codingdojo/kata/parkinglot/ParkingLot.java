@@ -28,6 +28,10 @@ public class ParkingLot {
         return car;
     }
 
+    public int getFreePos() {
+        return cap - map.keySet().size();
+    }
+
     public boolean hasFreePosition() {
         return map.keySet().size() < cap;
     }
