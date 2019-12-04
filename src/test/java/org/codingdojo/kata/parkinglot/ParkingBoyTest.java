@@ -1,5 +1,9 @@
 package org.codingdojo.kata.parkinglot;
 
+import org.codingdojo.kata.parkinglot.Bean.Car;
+import org.codingdojo.kata.parkinglot.Bean.Credit;
+import org.codingdojo.kata.parkinglot.parkingboy.ParkingBoy;
+import org.codingdojo.kata.parkinglot.parkingboy.SimpleParkingBoy;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 public class ParkingBoyTest {
-    private ParkingBoy boy = new ParkingBoy();
+    private SimpleParkingBoy boy = new ParkingBoy();
 
     @Before
     public void init_park_boy() {

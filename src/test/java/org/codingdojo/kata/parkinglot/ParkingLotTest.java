@@ -1,5 +1,6 @@
 package org.codingdojo.kata.parkinglot;
 
+import org.codingdojo.kata.parkinglot.Bean.Car;
 import org.junit.Test;
 
 import java.util.UUID;
