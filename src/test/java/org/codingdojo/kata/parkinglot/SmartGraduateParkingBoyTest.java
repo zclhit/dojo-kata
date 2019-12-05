@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-public class SmartParkingBoyTest {
+public class SmartGraduateParkingBoyTest {
 
     @Test
     public void should_park_in_first_parking_lot_when_the_first_parking_lot_has_more_free_pos() {

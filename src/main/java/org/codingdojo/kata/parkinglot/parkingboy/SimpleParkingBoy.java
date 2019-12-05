@@ -18,9 +18,18 @@ public abstract class SimpleParkingBoy {
 
     public Car retrieveCar(Credit credit) {
         int parkingLotNumber = credit.getParkingLotNumber();
-        if (parkingLotNumber > myParkingLots.size()) {
+        if (parkingLotNumber > myParkingLots.size() || parkingLotNumber == 0) {
             return null;
         }
         return myParkingLots.get(parkingLotNumber - 1).retrieve(credit.getParkingToken());
+    }
+
+    public boolean hasFreePos() {
+        for (ParkingLot myParkingLot : myParkingLots) {
+            if (myParkingLot.hasFreePosition()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
