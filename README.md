@@ -33,3 +33,44 @@ tasking可以称之为任务分解，在敏捷流程开发过程中，任务分�
 5. Parking Manager: 停车经理人
 
 
+
+以下是我的Tasking的过程：
+
+针对Parking lot:
+
+As userA, I want to see when customer with vehicle plate number xx come our parking log
+
+1. Given customer with plate number, and parking lot have free position, when he come to parking, should park success and return token.
+2. Given customer with a right token, and this token marked car has parked in lot, when he ask to retrieve car, should retrieve car success.
+3. Given customer without plate number, when he ask to park, should not park success.
+4. Given customer with plate number, parking lot has not position for park, when he come to parking, should not park success.
+5. Given customer with wrong token, when he asked to retrieve car, should not retrieve success.
+6. Given customer without token, when he asked to retrieve car, should not retrieve success.
+7. Given customer with token, but this token belongs to car has been retrieve, when he asked to retrieve car, should not retrieve success.
+8. 用户A存了车1，用户B存了车2，用户A来取车，应该取回车1。
+
+
+
+针对Parking Boy:
+
+1. Deparct: p1有空余停车车位来车可以停在p1,返回凭证(停车场编号和取车码)
+2. p1满了，来车停p2，返回凭证
+3. p1 p2满，无法停车
+4. 无效凭证取车，返回异常
+5. 凭证取车，返回正确的车
+
+
+
+针对Smart Parking Boy:
+
+1. p1空位多，停p1
+2. p2空位多，停p2
+3. p1和p2都有位置，空位一样多，停p1
+
+
+
+针对super pakring Boy:
+
+针对Parking Manager:
+
+上面两个后续补充。。。
